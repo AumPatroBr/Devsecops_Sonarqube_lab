@@ -11,7 +11,7 @@ pipeline {
         DOCKERHUB_USER = 'bar3met4l'
         IMAGE_NAME = 'jenkins-docker-lab'
         SONARQUBE = 'SonarCloud'
-        SONAR_TOKEN = credentials('aum-sq')
+        SONAR_TOKEN = credentials('aum-sonarcloud-token')
 
     }
     stages {
@@ -38,7 +38,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(credentialsId: 'aum-sonarcloud-token', installationName: 'aum-sq') {
+                withSonarQubeEnv(credentialsId: 'aum-sonarcloud-token', installationName: 'aum-sonarcloud-token') {
                     sh '''#!/bin/bash
                         set -eux
                         echo "=== SonarQube installation ==="
