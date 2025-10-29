@@ -38,7 +38,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(credentialsId: 'aum-sonarcloud-token', installationName: 'aum-sonarcloud-token') {
+                withSonarQubeEnv(credentialsId: 'aum-sonarcloud-token', installationName: 'aum-sq') {
                     sh '''#!/bin/bash
                         set -eux
                         echo "=== SonarQube installation ==="
